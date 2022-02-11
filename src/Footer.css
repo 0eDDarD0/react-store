@@ -1,0 +1,32 @@
+.FooterComponent{
+    grid-column: 1 / -1;
+
+    padding: 2rem;
+
+    background-color: rgb(230, 38, 38);
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.FooterComponent ul{
+    text-align: center;
+}
+
+.FooterComponent .logo{
+    grid-column: 2;
+
+    margin-bottom: 2rem;
+
+    font-size: calc(0.25rem + 0.5vw);
+    color: rgb(255, 255, 255);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.FooterComponent .logo span{
+    font-size: calc(1rem + 1vw);
+}

@@ -1,0 +1,36 @@
+#ProductoComponent{
+    height: 50vh;
+    width: 100%;
+
+    border: 1px solid rgb(230, 230, 230);
+
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    grid-template-rows: 1fr 9fr 2fr 1fr;
+
+    transition: border-bottom 0.3s;
+}
+#ProductoComponent:hover{
+    border: 1px solid rgb(255, 0, 0);
+}
+
+.img{
+    grid-row: 2;
+    grid-column: 2;
+
+    height: 80%;
+    width: 100%;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.text{
+    grid-row: 3;
+    grid-column: 2;
+    font-weight: 500;
+}
+.text-price{
+    font-weight: 300;
+}

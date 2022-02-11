@@ -1,25 +1,53 @@
-import logo from './logo.svg';
+import Header from './Header.js';
+import Producto from './Producto.js';
+import Footer from './Footer.js';
+import React from "react";
+
+import {fire, db} from './fire.js';
+import { onSnapshot, collection } from "firebase/firestore";
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+    constructor(){
+        super();
+        this.state = {productos: []};
+    }
+
+
+    ///////////////////////////////////////// MOUNT
+    componentDidMount(){
+        //RECOGEMOS TODOS LOS PRODUCTOS DE FIREBASE
+        onSnapshot(collection(db, "productos"), (docs) => {
+            let datos = []
+
+            //PARA CADA PRODUCTO MAQUETAMOS UN COMPONENTE
+            docs.forEach(doc => {
+                let data = doc.data();
+
+                datos.push(<Producto name={data.name} price={data.price} img={data.img}></Producto>);
+            });
+
+            this.setState({productos: datos});
+        });
+    }
+
+
+    ///////////////////////////////////////// HTML
+    render(){
+        return (
+            <div className="App">
+                <Header></Header>
+
+                <article>
+                    {this.state.productos}
+                </article>
+
+                <Footer></Footer>
+            </div>
+        );
+    }
 }
+
 
 export default App;
