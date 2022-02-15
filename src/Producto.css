@@ -8,6 +8,7 @@
     grid-template-columns: 1fr 10fr 1fr;
     grid-template-rows: 1fr 9fr 2fr 1fr;
 
+    cursor: pointer;
     transition: border-bottom 0.3s;
 }
 #ProductoComponent:hover{

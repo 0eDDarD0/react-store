@@ -14,22 +14,4 @@ a{
 
 article{
     grid-column: 2;
-
-    padding: 2rem;
-
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    gap: 2rem;
-}
-
-article div{
-    word-wrap: break-word
-}
-
-
-@media screen and (min-width: 1000px){
-    article{
-        grid-template-columns: repeat(3, 1fr);
-    }
 }

@@ -10,7 +10,7 @@
     align-items: center;
 }
 
-#HeaderComponent .logo{
+#HeaderComponent #logo{
     grid-column: 2;
 
     margin-bottom: 2rem;

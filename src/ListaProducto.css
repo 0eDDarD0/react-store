@@ -1,0 +1,19 @@
+.ListaProductoComponent{
+    padding: 2rem;
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    gap: 2rem;
+}
+
+.ListaProductoComponent div{
+    word-wrap: break-word
+}
+
+
+@media screen and (min-width: 1000px){
+    .ListaProductoComponent{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
