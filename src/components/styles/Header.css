@@ -31,13 +31,13 @@ nav{
     grid-column: 1 / -1;
 
     width: 100%;
-}
-nav ul{
+
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+
 }
-nav li{
+nav > *{
     width: 100%;
 
     text-align: center;
@@ -46,6 +46,6 @@ nav li{
     border-bottom: 3px solid rgb(226, 226, 226);
     transition: border-bottom 0.3s;
 }
-nav li:hover{
+nav > *:hover{
     border-bottom: 3px solid rgb(255, 0, 0);
 }

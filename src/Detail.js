@@ -1,7 +1,7 @@
 import React from "react";
 import './Detail.css';
 
-import { doc, onSnapshot } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import {fire, db} from './fire.js';
 import {
     BrowserRouter as Router,
@@ -12,17 +12,26 @@ import {
 } from "react-router-dom";
 
 
-function Detail(){
+function Detail(props){
     let id = useParams().id;
-    console.log(id);
-
-    //COMPROBAR PORQUE COÑO ESTO ME DEVUELVE LOS OBJETOS VACIOS
-    const prod = doc(db, "productos", id);
-    console.log(prod);
+    //Comprueba que haya cargado los productos, si no peta
+    if(!props.productos.length){
+        return (
+            <div className="DetailComponent"></div>
+        );
+    }
+    //si los ha cargado continua
+    let item = props.productos[id].props;
 
     return(
         <div className="DetailComponent">
-            Detalleeeeeeeeee
+            <div className="DetailImg" style={{backgroundImage: 'url('+item.img+')'}}></div>
+
+            <div className="DetailContent">
+                <h2>{item.name}</h2>
+                <h3>{item.price}€</h3>
+                <button onClick={()=>props.carrito(id)}>Añadir al carrito</button>
+            </div>
         </div>
     );
 }

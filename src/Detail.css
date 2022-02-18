@@ -1,0 +1,28 @@
+.DetailComponent{
+    height: 90vh;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 6fr 1fr 5fr;
+    grid-template-rows: 1fr 10fr 1fr;
+}
+
+.DetailImg{
+    grid-column: 1;
+    grid-row: 2;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.DetailContent{
+    grid-column: 3;
+    grid-row: 2;
+
+    display: flex;
+    flex-direction: column;
+}
+.DetailContent > *{
+    margin-bottom: 1rem;
+}

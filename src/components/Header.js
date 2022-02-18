@@ -1,5 +1,5 @@
 import React from "react";
-import './Header.css';
+import './styles/Header.css';
 
 import {
     BrowserRouter as Router,
@@ -23,12 +23,11 @@ class Header extends React.Component{
                 </Link>
 
                 <nav>
-                    <ul>
-                        <li><Link to={"/list"}>Hombre</Link></li>
-                        <li><Link to={"/list"}>Mujer</Link></li>
-                        <li><Link to={"/list"}>Niños</Link></li>
-                    </ul>
+                    <Link to={"/"}>Inicio</Link>
+                    <Link to={"/list"}>Productos</Link>
+                    <Link to={"/list"}>Carrito</Link>
                 </nav>
+
             </div>
         );
     }
