@@ -1,8 +1,8 @@
 import React from "react";
-import './Detail.css';
+import './styles/Detail.css';
 
 import { doc, getDoc } from "firebase/firestore";
-import {fire, db} from './fire.js';
+import {fire, db} from '../fire.js';
 import {
     BrowserRouter as Router,
     Routes,

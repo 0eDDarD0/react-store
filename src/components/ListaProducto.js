@@ -1,5 +1,5 @@
 import React from "react";
-import './ListaProducto.css';
+import './styles/ListaProducto.css';
 
 class ListaProducto extends React.Component{
     constructor(props){

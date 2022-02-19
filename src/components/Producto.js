@@ -1,5 +1,5 @@
 import React from "react";
-import './Producto.css';
+import './styles/Producto.css';
 
 import {
     BrowserRouter as Router,

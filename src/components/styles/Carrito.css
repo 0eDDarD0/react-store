@@ -1,0 +1,29 @@
+#CarritoComponent{
+    padding: 2rem;
+}
+
+.carrito-wrapper{
+    background-color: rgb(209, 209, 209);
+
+    padding: 1rem;
+    margin: 2rem 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.carrito-elemento{
+    background-color: white;
+    
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.carrito-elemento button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
