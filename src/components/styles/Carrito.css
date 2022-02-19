@@ -27,3 +27,10 @@
     border: none;
     cursor: pointer;
 }
+
+
+.carrito-wrapper-foot{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}

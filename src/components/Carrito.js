@@ -11,7 +11,8 @@ import {
 class Carrito extends React.Component{
     constructor(props){
         super(props);
-        this.state = {carrito: this.props.carrito, elementos: this.maquetaCarrito()};
+        let datos = this.maquetaCarrito();
+        this.state = {carrito: this.props.carrito, elementos: datos.aux, total: datos.total, numero: datos.num};
     }
 
 
@@ -22,6 +23,11 @@ class Carrito extends React.Component{
                 <h1>Carrito</h1>
                 <div className="carrito-wrapper">
                     {this.state.elementos}
+                    
+                    <div className="carrito-wrapper-foot">
+                        <h3>Número de artículos: {this.state.numero}</h3>
+                        <h3>Subtotal: {this.state.total}€</h3>
+                    </div>
                 </div>
             </div>
         );
@@ -30,10 +36,14 @@ class Carrito extends React.Component{
 
     ////////////////////////////////////////// METODOS
     maquetaCarrito(){
-        let aux = []
+        let aux = [];
+        let total = 0;
+        let num = 0;
 
-        console.log(this.props.carrito);
         for(let i in this.props.carrito){
+            num++;
+            total += this.props.carrito[i].producto.props.price * this.props.carrito[i].cantidad;
+
             aux.push(
                 <div className="carrito-elemento">
                     <div className="carrito-elemento-nombre">
@@ -65,7 +75,8 @@ class Carrito extends React.Component{
             )
         }
 
-        return aux;
+        console.log(total);
+        return {aux: aux, total: total, num: num};
     }
 
 
@@ -86,7 +97,8 @@ class Carrito extends React.Component{
         }
 
         this.setState({carrito: mod});
-        this.setState({elementos: this.maquetaCarrito()});
+        let datos = this.maquetaCarrito();
+        this.setState({elementos: datos.aux, total: datos.total, numero: datos.num});
 
         this.props.newCarrito(this.state.carrito);
     }
