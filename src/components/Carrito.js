@@ -42,26 +42,26 @@ class Carrito extends React.Component{
 
         for(let i in this.props.carrito){
             num++;
-            total += this.props.carrito[i].producto.props.price * this.props.carrito[i].cantidad;
+            total += this.props.carrito[i].producto.price * this.props.carrito[i].cantidad;
 
             aux.push(
                 <div className="carrito-elemento">
                     <div className="carrito-elemento-nombre">
-                        {this.props.carrito[i].producto.props.name}
+                        {this.props.carrito[i].producto.name}
                     </div>
 
                     <div className="carrito-elemento-precio">
-                    Ud: {this.props.carrito[i].producto.props.price}€
+                    Ud: {this.props.carrito[i].producto.price}€
                     </div>
 
                     <div className="carrito-elemento-cantidad">
-                        <button onClick={()=>this.cantidadMod(0, this.props.carrito[i].producto.props.id)}>-</button>
+                        <button onClick={()=>this.cantidadMod(0, this.props.carrito[i].producto.id)}>-</button>
                         {this.props.carrito[i].cantidad}
-                        <button onClick={()=>this.cantidadMod(1, this.props.carrito[i].producto.props.id)}>+</button>
+                        <button onClick={()=>this.cantidadMod(1, this.props.carrito[i].producto.id)}>+</button>
                     </div>
 
                     <div className="carrito-elemento-total">
-                        Total: {this.props.carrito[i].producto.props.price * this.props.carrito[i].cantidad}€
+                        Total: {this.props.carrito[i].producto.price * this.props.carrito[i].cantidad}€
                     </div>
                 </div>
             );
@@ -75,7 +75,6 @@ class Carrito extends React.Component{
             )
         }
 
-        console.log(total);
         return {aux: aux, total: total, num: num};
     }
 

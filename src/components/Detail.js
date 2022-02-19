@@ -38,24 +38,3 @@ function Detail(props){
   
 
 export default Detail;  
-
-
-
-// class Detail extends React.Component{
-
-//     constructor(props){
-//         super(props);
-
-//         // const unsub = onSnapshot(doc(db, "productos", "SF"), (doc) => {
-//         //     console.log("Current data: ", doc.data());
-//         // });
-//     }
-
-//     render(){
-//         return(
-//             <div className="DetailComponent">
-//                 Detalleeeeeeeeee
-//             </div>
-//         );
-//     }
-// }

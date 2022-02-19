@@ -18,23 +18,18 @@ class Header extends React.Component{
             <div id="HeaderComponent">
                 <Link id="logo" to={"/"}>
                 <div className="logo">
-                    <h1><span>M</span>&<span>H</span></h1>
+                    <img src="../../logo.png" alt="" />
                 </div>
                 </Link>
 
                 <nav>
-                    <Link to={"/"}>Inicio</Link>
-                    <Link to={"/list"}>Productos</Link>
+                    <Link to={"/about"}>About</Link>
+                    <Link to={"/"}>Productos</Link>
                     <Link to={"/carrito"}>Carrito</Link>
                 </nav>
 
             </div>
         );
-    }
-
-
-    showCategoria(type){
-        console.log('hola');
     }
 }
 

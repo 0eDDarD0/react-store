@@ -21,9 +21,11 @@ import { onSnapshot, collection } from "firebase/firestore";
 import './App.css';
 
 class App extends React.Component{
+    ////////////////////////////////////////// CONSTRUCTOR
     constructor(){
         super();
 
+        //RECOGIDA CARRITO LOCALSTORAGE
         if(localStorage.getItem('carrito')){
             this.state = {productos: [], carrito: JSON.parse(localStorage.getItem('carrito'))};
         }else{
@@ -46,6 +48,7 @@ class App extends React.Component{
                 id++;
             });
 
+            //ACTUALIZAMOS EL ESTADO
             this.setState({productos: datos});
         });
     }
@@ -60,12 +63,11 @@ class App extends React.Component{
 
                     <article>
                         <Routes>
-                            <Route exact path="/" element={<Welcome></Welcome>} />
-                            <Route exact path="/list" element={<ListaProducto datos={this.state.productos}></ListaProducto>} />
+                            <Route exact path="/" element={<ListaProducto datos={this.state.productos}></ListaProducto>} />
+                            <Route exact path="/about" element={<Welcome></Welcome>} />
                             <Route exact path="/detail/:id" element={<Detail carrito={(id)=>{this.addCarrito(id)}} productos={this.state.productos}></Detail>} />
                             <Route exact path="/carrito" element={<Carrito newCarrito={(nuevo)=>{this.newCarrito(nuevo)}} carrito={this.state.carrito}></Carrito>} />
                             <Route path="*" element={<NotFound />} />
-                            {/* organizar todo en la carpeta y crear la vista del carrito *************************************************/}
                         </Routes>
                     </article>
 
@@ -76,7 +78,8 @@ class App extends React.Component{
     }
 
 
-    ///////////////////////////////////////// METHODS
+    ///////////////////////////////////////// METODOS
+    //FUNCION QUE AÑADIRA UN PRDUCTO AL CARRITO DESDE SU DETALLE
     addCarrito(id){
         let nuevo = this.state.carrito;
 
@@ -85,15 +88,15 @@ class App extends React.Component{
             nuevo[id].cantidad++;
         //SI EL PRODUCTO TODAVIA NO ESTA EN EL CARRITO
         }else{
-            nuevo[id] = {cantidad: 1, producto: this.state.productos[id]};
+            nuevo[id] = {cantidad: 1, producto: this.state.productos[id].props};
         }
         //GUARDAMOS EL ESTADO DEL CARRITO
         this.setState({carrito: nuevo});
-        console.log(this.state.carrito);
         localStorage.setItem('carrito', JSON.stringify(this.state.carrito));
     }
 
 
+    //FUNCION QUE HARA EFECTIVOS LOS CAMBIOS AL CARRITO DESDE SU COMPONENTE
     newCarrito(nuevo){
         this.setState({carrito: nuevo});
         localStorage.setItem('carrito', JSON.stringify(this.state.carrito));

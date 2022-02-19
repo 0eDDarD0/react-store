@@ -26,3 +26,11 @@
 .DetailContent > *{
     margin-bottom: 1rem;
 }
+.DetailContent button{
+    background-color: rgb(230, 38, 38);
+    color: white;
+
+    padding: 1rem;
+
+    cursor: pointer;
+}

@@ -22,8 +22,8 @@
     flex-direction: column;
     align-items: center;
 }
-#HeaderComponent .logo span{
-    font-size: calc(1rem + 1vw);
+#HeaderComponent .logo img{
+    width: 5rem;
 }
 
 nav{

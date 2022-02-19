@@ -9,7 +9,7 @@
     grid-template-rows: 1fr 9fr 2fr 1fr;
 
     cursor: pointer;
-    transition: border-bottom 0.3s;
+    transition: border 0.3s;
 }
 #ProductoComponent:hover{
     border: 1px solid rgb(255, 0, 0);
